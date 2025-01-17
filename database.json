@@ -1,0 +1,22 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "สินค้า A",
+            "price": 100,
+            "description": "รายละเอียดสินค้า A"
+        },
+        {
+            "id": 2,
+            "name": "สินค้า B",
+            "price": 200,
+            "description": "รายละเอียดสินค้า B"
+        }
+    ]
+}
+{
+    "users": [],
+    "products": [],
+    "orders": [],
+    "stores": []
+}

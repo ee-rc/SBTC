@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เลือกช่องทางการชำระเงิน</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <h1>ช่องทางการชำระเงิน</h1>
+    </header>
+    <main>
+        <form id="payment-form">
+            <label>
+                <input type="radio" name="payment-method" value="credit-card" required>
+                บัตรเครดิต
+            </label>
+            <label>
+                <input type="radio" name="payment-method" value="paypal">
+                PayPal
+            </label>
+            <label>
+                <input type="radio" name="payment-method" value="bank-transfer">
+                โอนผ่านธนาคาร
+            </label>
+            <button type="submit">ยืนยันการชำระเงิน</button>
+        </form>
+        <script>
+            document.getElementById("payment-form").addEventListener("submit", (e) => {
+                e.preventDefault();
+                const selectedMethod = document.querySelector('input[name="payment-method"]:checked').value;
+                alert(`คุณเลือกวิธีการชำระเงิน: ${selectedMethod}`);
+            });
+        </script>
+        
+    </main>
+</body>
+</html>

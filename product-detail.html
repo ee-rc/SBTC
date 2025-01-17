@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายละเอียดสินค้า</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <h1>รายละเอียดสินค้า</h1>
+    </header>
+    <main>
+        <div id="product-detail">
+            <!-- รายละเอียดสินค้าจะถูกโหลดผ่าน JavaScript -->
+        </div>
+        <a href="products.html">กลับไปหน้าสินค้า</a>
+    </main>
+
+    <script>
+        // ดึง ID ของสินค้าจาก URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+
+        // ดึงข้อมูลรายละเอียดสินค้าจาก Backend
+        if (productId) {
+            fetch(`/products/${productId}`)
+                .then(response => response.json())
+                .then(product => {
+                    const productDetailDiv = document.getElementById('product-detail');
+                    productDetailDiv.innerHTML = `
+                        <h2>${product.name}</h2>
+                        <p>${product.description}</p>
+                        <p><strong>ราคา: </strong>${product.price} บาท</p>
+                        <p><strong>หมวดหมู่: </strong>${product.category}</p>
+                    `;
+                })
+                .catch(error => console.error('Error fetching product details:', error));
+        } else {
+            alert('ไม่พบรหัสสินค้า');
+            window.location.href = 'products.html';
+        }
+    </script>
+</body>
+</html>

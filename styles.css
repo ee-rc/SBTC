@@ -1,0 +1,163 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* Header */
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+}
+
+.main-header .logo {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.main-header .logo img {
+    height: 50px;
+    margin-right: 10px; /* ระยะห่างระหว่างโลโก้ */
+}
+
+.main-header .header-content {
+    flex-grow: 1; /* ทำให้ส่วนเนื้อหากลางขยาย */
+    text-align: center;
+}
+
+.main-header .header-content h1,
+.main-header .header-content h2 {
+    margin: 0;
+}
+
+.main-header .header-nav {
+    display: flex;
+    gap: 10px; /* ระยะห่างระหว่างปุ่ม */
+}
+
+.main-header .btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.main-header .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    background-color: #e8f4ff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero h2 {
+    color: #333;
+}
+
+/* Product List */
+.product-list {
+    display: flex;
+    gap: 20px; /* ระยะห่างระหว่างสินค้า */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px;
+    width: 250px;
+    transition: transform 0.3s ease;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.product-card h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.product-card p {
+    font-size: 14px;
+    color: #777;
+}
+
+.product-card:hover {
+    transform: scale(1.05); /* ขยายเล็กน้อยเมื่อ hover */
+}
+
+/* โลโก้ */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* ระยะห่างระหว่างโลโก้ */
+}
+
+.logo-img {
+    width: 50px; /* ขนาดของโลโก้ */
+    height: 50px; /* ทำให้เป็นสี่เหลี่ยมจัตุรัส */
+    border-radius: 50%; /* ปรับมุมให้กลายเป็นวงกลม */
+    object-fit: cover; /* ทำให้รูปภาพครอบคลุมพื้นที่ */
+    border: 2px solid #fff; /* เพิ่มเส้นขอบรอบโลโก้ */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+}
+
+/* ส่วนแสดงปุ่มดูสินค้า */
+.view-products-section {
+    text-align: center;
+    margin: 30px 0; /* ระยะห่างจากเนื้อหาด้านบน */
+}
+
+.btn-view-products {
+    display: inline-block; /* เพื่อให้ลิงก์แสดงเหมือนปุ่ม */
+    background-color: #007bff; /* สีพื้นปุ่ม */
+    color: #fff; /* สีตัวอักษร */
+    text-decoration: none; /* ลบเส้นใต้ */
+    padding: 15px 30px; /* ขนาดปุ่ม */
+    font-size: 18px; /* ขนาดตัวอักษร */
+    font-weight: bold; /* เน้นตัวอักษรหนา */
+    border-radius: 8px; /* มุมโค้ง */
+    cursor: pointer;
+    transition: all 0.3s ease; /* เพิ่มเอฟเฟกต์เมื่อ hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+}
+
+.btn-view-products:hover {
+    background-color: #0056b3; /* สีปุ่มเมื่อ hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* เพิ่มเงาเมื่อ hover */
+    transform: translateY(-3px); /* ขยับขึ้นเล็กน้อยเมื่อ hover */
+}
+

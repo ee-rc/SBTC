@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สมัครสมาชิก</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="register-container">
+        <h2>สมัครสมาชิก</h2>
+        <form id="register-form">
+            <div class="form-group">
+                <label for="email">อีเมล</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">รหัสผ่าน</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">ยืนยันรหัสผ่าน</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <button type="submit">สมัครสมาชิก</button>
+        </form>
+        <p>มีบัญชีแล้ว? <a href="login.html">เข้าสู่ระบบ</a></p>
+    </div>
+
+    <script>
+        // ส่งข้อมูลฟอร์มสมัครสมาชิกด้วย AJAX
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // ป้องกันการรีเฟรชหน้า
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (password !== confirmPassword) {
+                alert('รหัสผ่านและยืนยันรหัสผ่านไม่ตรงกัน');
+                return;
+            }
+
+            fetch('http://localhost:5000/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Registration failed');
+                }
+            })
+            .then(data => {
+                alert('สมัครสมาชิกสำเร็จ! โปรดเข้าสู่ระบบ.');
+                window.location.href = 'login.html'; // เปลี่ยนเส้นทางไปยังหน้าล็อกอิน
+            })
+            .catch(error => {
+                alert('เกิดข้อผิดพลาดในการสมัครสมาชิก');
+                console.error('Registration error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
