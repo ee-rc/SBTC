@@ -56,5 +56,26 @@
             });
         });
     </script>
-</body>
+
+    <script src="https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.16.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.16.0/firebase-firestore.js"></script>
+    <script src="firebase.js"></script>
+    <script>
+    document.getElementById('loginForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        try {
+            const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+            const user = userCredential.user;
+            await db.collection("users").doc(user.uid).set({ email: email, createdAt: new Date() });
+            alert("Registration successful!");
+        } catch (error) {
+            alert("Error: " + error.message);
+        }
+    });
+    </script>
+    </body>
 </html>
