@@ -1,58 +1,83 @@
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js"></script>
+
+<script>
+    // ตั้งค่าการเชื่อมต่อ Firebase
+    const firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_AUTH_DOMAIN",
+        projectId: "YOUR_PROJECT_ID",
+        storageBucket: "YOUR_STORAGE_BUCKET",
+        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+        appId: "YOUR_APP_ID"
+    };
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore(app);
+</script>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SBTC Product ผู้ประกอบการรายใหม่ (SMEs)</title>
+    <title>ตัวอย่างเว็บไซต์</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-     <header class="main-header">
-        <div class="logo">
-            <img src="logo/1.jpg" alt="Logo 1" class="logo-img">
-            <img src="logo/Screenshot2024-11-22.png" alt="Logo 2" class="logo-img">
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="logo.png/1.jpg" alt="โลโก้">
+                <img src="logo.png/Screenshot 2024-11-22 090420.png" alt="โลโก้">
+            </div>
+            <div class="header-title">
+                <h1>ศูนย์บ่มเพาะผู้ประกอบการอาชีวศึกษา</h1>
+                <p>วิทยาลัยเทคนิคสิงห์บรุี</p>
+            </div>
+            <div class="auth-buttons">
+                <a href="products.html"><button>เข้าสู่ระบบผู้ซื้อ</button></a>
+        <a href="seller_dashboard.html"><button>เข้าสู่ระบบผู้ขาย</button></a>
+    </div>
         </div>
-        <div class="header-content">
-            <h1>SBTC Product ผู้ประกอบการรายใหม่ (SMEs)</h1>
-            <h2>วิทยาลัยเทคนิคจังหวัด</h2>
-        </div>
-        <nav class="header-nav">
-            <a href="login.html" class="btn blue">เข้าสู่ระบบ</a>
-            <a href="register.html" class="btn blue">สมัครสมาชิก</a>
-        </nav>
     </header>
-   
-
     <main>
-        <h1>สินค้าแนะนำ</h1>
-        <div id="product-list" class="product-container">
-            <!-- สินค้าจะถูกเพิ่มแบบไดนามิกผ่าน JavaScript -->
-        </div>
+        <section class="banner">
+            <h2>การหารายได้ระหว่างเรียน</h2>
+        </section>
+        <section class="content">
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+        </section>
     </main>
+    <span id="username-display"></span>
+</header>
 
-    <footer>
-        <p>Copyright © 2025 SBTC. All Rights Reserved.</p>
-    </footer>
+<div class="center-container ">
+    <a href="products.html">สินค้า</a>
+    </div>
+        <a href="order-list.html">คำสั่งซื้อ</a>
+        <a href="add-product.html">เพิ่มสินค้า</a>
+        
+<main>
+<h2>ยินดีต้อนรับสู่ระบบจัดการร้านค้า</h2>
+<p>เลือกเมนูด้านบนเพื่อจัดการระบบสินค้าและคำสั่งซื้อ</p>
+</main>
 
-    <script>
-        // ดึงข้อมูลสินค้าและแสดงในหน้า
-        fetch('/products')
-            .then(response => response.json())
-            .then(products => {
-                const productList = document.getElementById('product-list');
-                products.forEach(product => {
-                    const productDiv = document.createElement('div');
-                    productDiv.classList.add('product-item');
-                    productDiv.innerHTML = `
-                        <h2>${product.name}</h2>
-                        <p>${product.description}</p>
-                        <p><strong>ราคา: </strong>${product.price} บาท</p>
-                    `;
-                    productList.appendChild(productDiv);
-                });
-            })
-            .catch(error => console.error('Error fetching products:', error));
-    </script>
+<script>
+// ตรวจสอบการล็อกอิน
+const userData = JSON.parse(localStorage.getItem("userData"));
+if (!userData) {
+    alert("กรุณาเข้าสู่ระบบก่อน!");
+    window.location.href = "login.html";
+} else {
+    document.getElementById("username-display").innerText = `ยินดีต้อนรับ, ${userData.username}`;
+}
+
+</script>>
+
 </body>
 </html>

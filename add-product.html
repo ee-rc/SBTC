@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Products</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Manage Products</h1>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="order-list.html">Orders</a>
+                <a href="add-product.html">Add Products</a>
+                <button id="logout">Logout</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h2>Add New Product</h2>
+        <form id="add-product-form">
+            <input type="text" id="product-name" placeholder="Product Name" required>
+            <input type="text" id="product-description" placeholder="Description" required>
+            <input type="number" id="product-price" placeholder="Price" required>
+            <input type="url" id="product-image" placeholder="Image URL" required>
+            <button type="submit">Add Product</button>
+        </form>
+
+        <h2>Product List</h2>
+        <table id="product-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic content will be added here -->
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>© 2024 Manage Products</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
