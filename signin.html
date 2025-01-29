@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Sign In</h1>
+        </div>
+    </header>
+    <main>
+        <section class="auth-section">
+            <h2>สมัครสมาชิก</h2>
+            <form id="signinForm">
+                <div class="form-group">
+                    <label for="username">ชื่อผู้ใช้งาน</label>
+                    <input type="text" id="username" name="username" placeholder="กรอกชื่อผู้ใช้งาน" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">อีเมล</label>
+                    <input type="email" id="email" name="email" placeholder="กรอกอีเมล" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">รหัสผ่าน</label>
+                    <input type="password" id="password" name="password" placeholder="กรอกรหัสผ่าน" required>
+                </div>
+                <button type="submit" class="btn-submit">SIGN IN</button>
+            </form>
+            <p>มีบัญชีอยู่แล้ว? <a href="login.html">เข้าสู่ระบบ</a></p>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById("signinForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // เก็บข้อมูลใน Local Storage
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            const userData = { username, email, password };
+            localStorage.setItem("userData", JSON.stringify(userData));
+
+            alert("สมัครสมาชิกสำเร็จ!");
+            window.location.href = "login.html"; // พาไปยังหน้า Login
+        });
+    </script>
+</body>
+</html>

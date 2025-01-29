@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="th">
+    <div class="header-container">
+        <div class="logo">
+            <img src="logo.png/1.jpg" alt="โลโก้">
+            <img src="logo.png/Screenshot 2024-11-22 090420.png" alt="โลโก้">
+        </div>
+        <div class="header-title">
+            <h1>ศูนย์บ่มเพาะผู้ประกอบการอาชีวศึกษา</h1>
+            <p>วิทยาลัยเทคนิคสิงห์บรุี</p>
+        </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    
+    <header>
+        <h1>แดชบอร์ดผู้ขาย</h1>
+        <button onclick="logout()">LOGOUT</button>
+        <button onclick="goToHome()">HOME</button>
+    </header>
+    <main>
+        <section class="order-list">
+            <h2>รายการคำสั่งซื้อ</h2>
+            <div id="order-container">
+                <!-- รายการคำสั่งซื้อจะแสดงที่นี่ -->
+            </div>
+        </section>
+    </main>
+    <script>
+        function goToHome() {
+            window.location.href = "index.html";
+        }
+        // ตรวจสอบการล็อกอิน
+        const userData = JSON.parse(localStorage.getItem("userData"));
+        if (!userData) {
+            alert("กรุณาเข้าสู่ระบบก่อน!");
+            window.location.href = "login.html";
+        }
+
+        // โหลดข้อมูลคำสั่งซื้อ
+        const orders = JSON.parse(localStorage.getItem("orders")) || [];
+        const orderContainer = document.getElementById("order-container");
+
+        if (orders.length === 0) {
+            orderContainer.innerHTML = "<p>ยังไม่มีคำสั่งซื้อ</p>";
+        } else {
+            orders.forEach((order, index) => {
+                const orderItem = document.createElement("div");
+                orderItem.classList.add("order-item");
+                orderItem.innerHTML = `
+                    <p><strong>คำสั่งซื้อที่:</strong> ${index + 1}</p>
+                    <p><strong>ชื่อสินค้า:</strong> ${order.productName}</p>
+                    <p><strong>ราคา:</strong> ฿${order.price}</p>
+                    <p><strong>ที่อยู่:</strong> ${order.address}</p>
+                    <hr>
+                `;
+                orderContainer.appendChild(orderItem);
+            });
+        }
+
+        // ฟังก์ชัน Logout
+        function logout() {
+            localStorage.removeItem("userData");
+            alert("ออกจากระบบสำเร็จ!");
+            window.location.href = "login.html";
+        }
+    </script>
+    <style>
+        .order-list {
+            padding: 20px;
+        }
+        .order-item {
+            background: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</body>
+</html>

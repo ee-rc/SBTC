@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>จัดการคำสั่งซื้อ</h1>
+            <nav>
+                <a href="index.html">หน้าแรก</a>
+                <a href="products.html">สินค้า</a>
+                <a href="add-product.html">เพิ่มสินค้า</a>
+                </nav>
+        </div>
+    </header>
+
+    <main>
+        <h2>รายการคำสั่งซื้อ</h2>
+        <table id="order-table" border="1">
+            <thead>
+                <tr>
+                    <th>ชื่อสินค้า</th>
+                    <th>ราคา</th>
+                    <th>ที่อยู่จัดส่ง</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- รายการคำสั่งซื้อจะแสดงที่นี่ -->
+            </tbody>
+        </table>
+    </main>
+
+    <script>
+        // ดึงข้อมูลคำสั่งซื้อจาก Local Storage
+        const orders = JSON.parse(localStorage.getItem("orderList")) || [];
+
+        // แสดงคำสั่งซื้อในตาราง
+        const orderTable = document.getElementById("order-table").getElementsByTagName("tbody")[0];
+        orders.forEach(order => {
+            const row = orderTable.insertRow();
+            row.innerHTML = `
+                <td>${order.productName}</td>
+                <td>฿${order.price}</td>
+                <td>${order.address}</td>
+            `;
+        });
+
+        // Logout
+        function logout() {
+            localStorage.removeItem("userData");
+            alert("ออกจากระบบสำเร็จ!");
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+</html>

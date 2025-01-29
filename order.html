@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container header-title">
+            <div class="logo">
+                <img src="logo.png/1.jpg" alt="โลโก้">
+                <img src="logo.png/Screenshot 2024-11-22 090420.png" alt="โลโก้">
+            </div>
+            <div class="header-title">
+                <h1>ศูนย์บ่มเพาะผู้ประกอบการอาชีวศึกษา</h1>
+                <p>วิทยาลัยเทคนิคสิงห์บรุี</p>
+            </div>
+            <div class="user-section header-title">
+                <span id="username-display"></span>
+                <button onclick="logout()">LOGOUT</button>
+                <button onclick="goToHome()">HOME</button> <!-- ปุ่มกลับหน้าแรก -->
+            </div>
+        </div>
+    </header>
+    
+    <script>
+        // ฟังก์ชันกลับหน้าแรก
+        function goToHome() {
+            window.location.href = "index.html";
+        }
+    </script>
+    
+
+    <main>
+        <section class="order-section header-title">
+            <h2>CONFIRM YOUR ORDER</h2>
+            <div id="order-details">
+                <!-- แสดงรายละเอียดสินค้า -->
+            </div>
+            <label for="address">ADDRESS</label>
+            <textarea id="address" placeholder="Your Address..." required></textarea>
+            <button class="confirm-button" onclick="confirmOrder()">CONFIRM ORDER</button>
+        </section>
+    </main>
+
+    <script>
+        // ตรวจสอบการล็อกอิน
+        const userData = JSON.parse(localStorage.getItem("userData"));
+        if (!userData) {
+            alert("กรุณาเข้าสู่ระบบก่อน!");
+            window.location.href = "login.html"; // พาไปหน้า Login หากยังไม่เข้าสู่ระบบ
+        } else {
+            document.getElementById("username-display").innerText = `ยินดีต้อนรับ, ${userData.username}`;
+        }
+
+        // แสดงข้อมูลคำสั่งซื้อ
+        const orderData = JSON.parse(localStorage.getItem("orderData"));
+        if (!orderData) {
+            alert("ไม่มีคำสั่งซื้อ!");
+            window.location.href = "products.html"; // พากลับไปหน้าสินค้า
+        } else {
+            document.getElementById("order-details").innerHTML = `
+                <div class="order-card">
+                    <h3>${orderData.productName}</h3>
+                    <p>ราคา: ฿${orderData.price}</p>
+                </div>
+            `;
+        }
+
+        // ยืนยันคำสั่งซื้อ
+        function confirmOrder() {
+            const address = document.getElementById("address").value;
+            if (!address) {
+                alert("กรุณากรอกที่อยู่!");
+                return;
+            }
+            alert(`คำสั่งซื้อสำเร็จ! เราจะจัดส่งสินค้าไปยัง: ${address}`);
+            localStorage.removeItem("orderData"); // ลบข้อมูลคำสั่งซื้อ
+            window.location.href = "products.html"; // กลับไปหน้าสินค้า
+        }
+
+        // ฟังก์ชัน Logout
+        function logout() {
+            localStorage.removeItem("userData");
+            alert("ออกจากระบบสำเร็จ!");
+            window.location.href = "login.html";
+        }
+    </script>
+    <button onclick="goToOrders()">ดูคำสั่งซื้อ</button>
+</body>
+</html>

@@ -1,163 +1,1304 @@
-/* Global Styles */
+/* ตั้งค่าเบื้องต้น */
 body {
+    margin: 0;
     font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #f5f5f5;
 }
 
-h1, h2, h3 {
-    margin: 0;
+/* ส่วนหัว */
+header {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
 }
 
-button {
-    cursor: pointer;
-}
-
-/* Header */
-.main-header {
+.header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #333;
-    color: #fff;
-    padding: 15px;
 }
 
-.main-header .logo {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-}
-
-.main-header .logo img {
+.logo img {
     height: 50px;
-    margin-right: 10px; /* ระยะห่างระหว่างโลโก้ */
 }
 
-.main-header .header-content {
-    flex-grow: 1; /* ทำให้ส่วนเนื้อหากลางขยาย */
+.header-title {
     text-align: center;
 }
 
-.main-header .header-content h1,
-.main-header .header-content h2 {
+.header-title h1 {
+    font-size: 1.5rem;
     margin: 0;
 }
 
-.main-header .header-nav {
-    display: flex;
-    gap: 10px; /* ระยะห่างระหว่างปุ่ม */
+.header-title p {
+    margin: 0;
+    font-size: 1rem;
+    color: #ccc;
 }
 
-.main-header .btn {
-    background-color: #007bff;
+.auth-buttons button {
+    background-color: transparent;
+    border: 1px solid #fff;
     color: #fff;
-    border: none;
-    padding: 10px 15px;
+    padding: 5px 10px;
+    margin-left: 10px;
+    cursor: pointer;
     border-radius: 5px;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
 }
 
-.main-header .btn:hover {
-    background-color: #0056b3;
+.auth-buttons button:hover {
+    background-color: #fff;
+    color: #000;
 }
 
-/* Hero Section */
-.hero {
+/* ส่วนแบนเนอร์ */
+.banner {
+    background-color: #eaf7ff;
     text-align: center;
-    background-color: #e8f4ff;
     padding: 20px;
-    margin: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
 }
 
-.hero h2 {
+.banner h2 {
+    margin: 0;
+    font-size: 1.8rem;
     color: #333;
 }
 
-/* Product List */
-.product-list {
+/* กล่องเนื้อหา */
+.content {
     display: flex;
-    gap: 20px; /* ระยะห่างระหว่างสินค้า */
     justify-content: center;
-    margin-top: 20px;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.card {
+    width: 150px;
+    height: 150px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover; /* ปรับขนาดรูปให้พอดีกับวงกลม */
+}
+
+.lil {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+  }
+
+  .olo {
+    text-align: left;
+}
+
+.pkpk {
+    width: 50px; /* ความกว้างของรูป */
+    height: 50px; /* ความสูงของรูป */
+    object-fit: cover; /* ปรับขนาดให้รูปพอดีกับกรอบ */
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.card h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.card button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background-color: #0056b3;
+}
+
+.sign-in-button {
+    background-color: #007bff; /* สีพื้นหลัง */
+    color: #fff; /* สีตัวหนังสือ */
+    border: none; /* ไม่มีเส้นขอบ */
+    padding: 10px 20px; /* ระยะห่างภายในปุ่ม */
+    border-radius: 5px; /* มุมโค้ง */
+    font-size: 1rem; /* ขนาดตัวอักษร */
+    cursor: pointer; /* เปลี่ยนเมาส์เป็นรูปมือเมื่อชี้ */
+    transition: background-color 0.3s ease; /* เพิ่มเอฟเฟกต์เวลาเปลี่ยนสี */
+}
+
+.sign-in-button:hover {
+    background-color: #0056b3; /* สีพื้นหลังเมื่อชี้เมาส์ */
+}
+
+/* จัดหน้าเข้าสู่ระบบ */
+.auth-section {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.auth-section h2 {
+    margin-bottom: 20px;
+    font-size:1.5rem;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-group input {
+    width: 95%;
+    padding: 10px;
+    border: 4px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.button-group button {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    background-color: #00ee28;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-group button:hover {
+    background-color: #0382e9;
+}
+
+/* ปุ่มใน header */
+.auth-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin: 10px;
+}
+
+.auth-buttons button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.auth-buttons button:hover {
+    background-color: #0056b3;
+}
+
+/* ส่วน SIGN IN */
+.auth-section {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.auth-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-group input {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #00ff3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-submit:hover {
+    background-color: #00a2ff;
+}
+
+.product-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.product-card {
+    display: inline-block;
+    width: 250px;
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-card h3 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.product-card span {
+    display: block;
+    margin: 10px 0;
+    color: #555;
+}
+
+.product-card form {
+    margin-top: 10px;
+}
+
+.product-card button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.product-card button:hover {
+    background-color: #0056b3;
+}
+
+/* ปุ่ม */
+.btn-submit {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+/* แบบฟอร์ม */
+.auth-section {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.auth-section h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* การ์ดสินค้า */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
 }
 
 .product-card {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
     padding: 15px;
-    width: 250px;
-    transition: transform 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .product-card img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.product-card h3 {
+    margin: 10px 0;
+}
+
+.product-card .price {
+    color: #ff4500;
+    font-weight: bold;
+}
+
+.buy-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buy-button:hover {
+    background-color: #0056b3;
+}
+
+/* การ์ดคำสั่งซื้อ */
+.order-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* โครงร่างหน้า */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.header-container {
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    align-items: center;
+}
+
+.user-section button {
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.user-section button:hover {
+    background-color: #e63900;
+}
+
+/* แสดงสินค้า */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
 }
 
 .product-card h3 {
     font-size: 18px;
+    margin: 15px 0 10px;
     color: #333;
-    margin-bottom: 5px;
 }
 
 .product-card p {
     font-size: 14px;
-    color: #777;
+    color: #666;
+}
+
+.price {
+    font-size: 20px;
+    color: #ff4500;
+    margin-bottom: 15px;
+}
+
+.buy-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.buy-button:hover {
+    background-color: #0056b3;
+}
+
+/* โครงร่างหน้า */
+.order-section {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.order-section h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.order-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.order-card h3 {
+    font-size: 18px;
+    margin: 0;
+    color: #333;
+}
+
+.order-card p {
+    font-size: 16px;
+    color: #ff4500;
+    margin: 0;
+}
+
+textarea#address {
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: 'Arial', sans-serif;
+}
+
+textarea#address:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.confirm-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.confirm-button:hover {
+    background-color: #218838;
+}
+
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #222;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-container h1 {
+    font-size: 1.5rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #444;
+}
+
+button {
+    background-color: #f04e30;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #c0392b;
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 900px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+main h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form input,
+form button {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #4caf50;
+    color: white;
+}
+
+/* Product List */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .product-card:hover {
-    transform: scale(1.05); /* ขยายเล็กน้อยเมื่อ hover */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* โลโก้ */
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* ระยะห่างระหว่างโลโก้ */
+.product-card img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
-.logo-img {
-    width: 50px; /* ขนาดของโลโก้ */
-    height: 50px; /* ทำให้เป็นสี่เหลี่ยมจัตุรัส */
-    border-radius: 50%; /* ปรับมุมให้กลายเป็นวงกลม */
-    object-fit: cover; /* ทำให้รูปภาพครอบคลุมพื้นที่ */
-    border: 2px solid #fff; /* เพิ่มเส้นขอบรอบโลโก้ */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+.product-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
 }
 
-/* ส่วนแสดงปุ่มดูสินค้า */
-.view-products-section {
-    text-align: center;
-    margin: 30px 0; /* ระยะห่างจากเนื้อหาด้านบน */
+.product-card p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #888;
 }
 
-.btn-view-products {
-    display: inline-block; /* เพื่อให้ลิงก์แสดงเหมือนปุ่ม */
-    background-color: #007bff; /* สีพื้นปุ่ม */
-    color: #fff; /* สีตัวอักษร */
-    text-decoration: none; /* ลบเส้นใต้ */
-    padding: 15px 30px; /* ขนาดปุ่ม */
-    font-size: 18px; /* ขนาดตัวอักษร */
-    font-weight: bold; /* เน้นตัวอักษรหนา */
-    border-radius: 8px; /* มุมโค้ง */
+.buy-button {
+    background-color: #f04e30;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease; /* เพิ่มเอฟเฟกต์เมื่อ hover */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+    font-size: 1rem;
 }
 
-.btn-view-products:hover {
-    background-color: #0056b3; /* สีปุ่มเมื่อ hover */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* เพิ่มเงาเมื่อ hover */
-    transform: translateY(-3px); /* ขยับขึ้นเล็กน้อยเมื่อ hover */
+.buy-button:hover {
+    background-color: #c0392b;
 }
 
+/* Footer */
+footer {
+    margin-top: 20px;
+    text-align: center;
+    color: #666;
+    padding: 10px;
+    background-color: #222;
+    color: white;
+}
+
+/*bbbb*/
+/* กำหนดกล่องให้อยู่ตรงกลาง */
+.center-container {
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+/* สไตล์ปุ่ม */
+.custom-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.custom-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.custom-button:active {
+    background-color: #003d80;
+    transform: scale(0.95);
+}
+.assdf {
+     display: flex; 
+     justify-content: center; 
+     align-items: center; 
+    }
+
+.center {
+        text-align: center;
+      }
+
+      /* Delete Button */
+.delete-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+/* Product Table */
+#product-table img {
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 5px;
+}
+
+/* DDDDDDD */
+/* ปุ่ม Delete */
+.delete-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+/* ตั้งค่าเบื้องต้น */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* ส่วนหัว */
+header {
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.header-title h1 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.header-title p {
+    margin: 0;
+    font-size: 1rem;
+    color: #ccc;
+}
+
+/* ปุ่ม */
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* หน้าแสดงสินค้า */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.product-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.price {
+    color: #ff4500;
+    font-weight: bold;
+}
+
+.buy-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buy-button:hover {
+    background-color: #218838;
+}
+
+/* หน้าเข้าสู่ระบบ */
+.auth-section {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.auth-section h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #45a049;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #222;
+    color: white;
+    margin-top: 40px;
+}
+
+/* ส่วนคำสั่งซื้อ */
+.order-section {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.order-section h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.order-card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+textarea#address {
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+textarea#address:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.confirm-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.confirm-button:hover {
+    background-color: #218838;
+}
+
+/* ปุ่มเมนูผู้ขาย */
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: #444;
+}
+
+/* ตกแต่งฟอร์มในหน้าผู้ขาย */
+#add-product-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+#add-product-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#add-product-form button:hover {
+    background-color: #218838;
+}
+/* ตั้งค่าเบื้องต้น */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* Header */
+header {
+    background-color: #222;
+    color: #fff;
+    padding: 20px 30px;
+    text-align: center;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.header-title h1 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.header-title p {
+    margin: 0;
+    font-size: 1rem;
+    color: #ccc;
+}
+
+/* ปุ่ม */
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* หน้าแสดงสินค้า */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.product-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.price {
+    color: #ff4500;
+    font-weight: bold;
+}
+
+.buy-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buy-button:hover {
+    background-color: #218838;
+}
+
+/* หน้าเข้าสู่ระบบ */
+.auth-section {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.auth-section h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #45a049;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #222;
+    color: white;
+    margin-top: 40px;
+}

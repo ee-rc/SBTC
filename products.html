@@ -4,58 +4,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>หน้าสินค้า</title>
+    <title>Products</title>
     <link rel="stylesheet" href="styles.css">
-    <script>
-        // เช็กสถานะการล็อกอิน
-        const isLoggedIn = false; // เปลี่ยนเป็น true หากผู้ใช้ล็อกอินแล้ว
-
-        // ถ้าผู้ใช้ไม่ได้ล็อกอิน ให้เปลี่ยนเส้นทางไปหน้าล็อกอิน
-        if (!isLoggedIn) {
-            alert("กรุณาเข้าสู่ระบบก่อนเข้าถึงหน้านี้");
-            window.location.href = "login.html";
-        }
-    </script>
 </head>
 <body>
-    <header class="main-header">
-        <h1>รายการสินค้า</h1>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="logo.png/1.jpg" alt="โลโก้">
+                <img src="logo.png/Screenshot 2024-11-22 090420.png" alt="โลโก้">
+            </div>
+            <div class="header-title">
+                <h1>ศูนย์บ่มเพาะผู้ประกอบการอาชีวศึกษา</h1>
+                <p>วิทยาลัยเทคนิคสิงห์บรุี</p>
+            </div>
+            <div class="user-section header-title">
+                <span id="username-display"></span>
+                <button onclick="logout()">LOGOUT</button>
+                <button onclick="goToHome()">HOME</button>
+            </div>
+        </div>
     </header>
 
     <main>
-        <div id="product-list" class="product-container">
-            <!-- สินค้าจะถูกเพิ่มแบบไดนามิกผ่าน JavaScript -->
-        </div>
+        <section class="product-list">
+            <div class="product-card">
+                <img src="product1.jpg" alt="Product 1">
+                <h3>GEN9 STORY</h3>
+                <p>รุ่นกำลังมาแรง</p>
+                <p class="price">฿1,500</p>
+                <button class="buy-button" onclick="orderProduct('GEN9 STORY', 1500)">BUY</button>
+            </div>
+            <div class="product-card">
+                <img src="product2.jpg" alt="Product 2">
+                <h3>GEN10 STYLE</h3>
+                <p>สินค้าขายดี</p>
+                <p class="price">฿2,000</p>
+                <button class="buy-button" onclick="orderProduct('GEN10 STYLE', 2000)">BUY</button>
+            </div>
+            <div class="product-card">
+                <img src="images/product1.jpg" alt="Product 1">
+                <h3>GEN9 STORY</h3>
+                <p class="price">฿500</p>
+                <button class="buy-button" onclick="orderProduct('GEN9 STORY', 500)">BUY</button>
+            </div>
+            
+            <!-- เพิ่มสินค้าเพิ่มเติมในรูปแบบนี้ -->
+        </section>
     </main>
 
-    <footer>
-        <p>Copyright © 2025 SBTC. All Rights Reserved.</p>
-    </footer>
-
     <script>
-        // ดึงข้อมูลสินค้าจาก Backend
-        fetch('/products')
-            .then(response => response.json())
-            .then(products => {
-                const productList = document.getElementById('product-list');
-                products.forEach(product => {
-                    const productDiv = document.createElement('div');
-                    productDiv.classList.add('product-item');
-                    productDiv.innerHTML = `
-                        <h2>${product.name}</h2>
-                        <p>${product.description}</p>
-                        <p><strong>ราคา: </strong>${product.price} บาท</p>
-                        <button onclick="viewDetails(${product.id})">ดูรายละเอียด</button>
-                    `;
-                    productList.appendChild(productDiv);
-                });
-            })
-            .catch(error => console.error('Error fetching products:', error));
-
-        // ฟังก์ชันเปิดหน้ารายละเอียดสินค้า
-        function viewDetails(productId) {
-            window.location.href = `product-detail.html?id=${productId}`;
+        function goToHome() {
+            window.location.href = "index.html";
         }
+        // แสดงชื่อผู้ใช้หลังล็อกอิน
+        const userData = JSON.parse(localStorage.getItem("userData"));
+        if (!userData) {
+            alert("กรุณาเข้าสู่ระบบก่อน!");
+            window.location.href = "login.html"; // พาไปหน้า Login หากยังไม่เข้าสู่ระบบ
+        } else {
+            document.getElementById("username-display").innerText = `ยินดีต้อนรับ, ${userData.username}`;
+        }
+
+        // ฟังก์ชันการสั่งซื้อ
+        function orderProduct(productName, price) {
+            const orderData = { productName, price };
+            localStorage.setItem("orderData", JSON.stringify(orderData)); // เก็บข้อมูลคำสั่งซื้อ
+            window.location.href = "order.html"; // พาไปหน้าสั่งซื้อ
+        }
+
+        // ฟังก์ชัน Logout
+        function logout() {
+            localStorage.removeItem("userData");
+            alert("ออกจากระบบสำเร็จ!");
+            window.location.href = "login.html";
+        }
+        // ดึงรายการสินค้าจาก Local Storage
+const productList = JSON.parse(localStorage.getItem("productList")) || [];
+
+// แสดงสินค้า
+const productContainer = document.querySelector(".product-list");
+productList.forEach(product => {
+    const productCard = document.createElement("div");
+    productCard.classList.add("product-card");
+    productCard.innerHTML = `
+        <img src="${product.image}" alt="${product.productName}">
+        <h3>${product.productName}</h3>
+        <p>ราคา: ฿${product.price}</p>
+        <button class="buy-button" onclick="orderProduct('${product.productName}', ${product.price})">BUY</button>
+    `;
+    productContainer.appendChild(productCard);
+});
+
     </script>
 </body>
 </html>
